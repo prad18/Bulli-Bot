@@ -60,13 +60,12 @@ async def on_message(message):
         await message.channel.send('king gay')
     if msg.startswith('vebev'):
         await message.channel.send('KUMARAN')
-    
-@client.listen('on_message')
+
 async def on_ping(message):
     if message.mention_everyone:
         return
     else:
-        print("Prefix is %")
+        await message.channel.send("You can type `%help` for more info")
 
 
 client.run(os.environ["token"])
