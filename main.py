@@ -1,69 +1,43 @@
+from ast import alias
+from pydoc import cli
 import os
 import discord
+from discord.ext import commands
 import requests
 import json
 import random
-client = discord.Client()
+intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
+client = commands.Bot(command_prefix="%", intents=intents)
 
-sad=['depressun','aks','nub','sad','loser','miserable']
-encourage=['eruma madu','overa scene ah podatha','savu da naiye']
-
-
-def get_quote():
-    response = requests.get("https://zenquotes.io/api/random")
-    json_data = json.loads(response.text)
-    quote = json_data[0] ['q'] + '-' +    json_data[0] ['a']
-    return(quote)
-
+def calccv(x: float, y: float):
+    return x*2+y
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.dnd,activity=discord.Game('Made by prad with lube❤️'))
+    await client.change_presence(status=discord.Status.dnd,activity=discord.Game('Made by prad ❤️'))
     print("We have logged in sucessfully as {0.user}".format(client))
 
 @client.event
 async def on_message(message):
-    if message.author==client.user:
-        return
-
-    msg = message.content
-
-    if msg.startswith('%help'):
-        await message.channel.send('\n\nCommands are:\n1.aks\n2.vebev\n3.ani\n4.prash\n5.prad\n6.quote\n7.sp\n8.rup\n9.vish\n\n')
-    if msg.startswith('%quote'):
-        await message.channel.send(get_quote())
-    
-    if msg.startswith('%god'):
-        await message.channel.send('PRAD')
-
-    if msg.startswith('%aks'):
-        await message.channel.send('DEPRESSUN')
-    
-    if msg.startswith('%vebev'):
-        await message.channel.send('NUB')
-
-    if msg.startswith('%ani'):
-        await message.channel.send('NONONOONONONO')
-
-    if msg.startswith('%prash'):
-        await message.channel.send('PERO')
-
-    if msg.startswith('%prad'):
-        await message.channel.send('GOD')
-
-    if msg.startswith('%sp'):
-        await message.channel.send('💀')
-    
-    if msg.startswith('%rup'):
-        await message.channel.send('.......')  
-    if msg.startswith('%vish'):
-        await message.channel.send('king gay')
-    if msg.startswith('vebev'):
-        await message.channel.send('KUMARAN')
-    
     if "<@872795608770052116>" in message.content:
-        await message.channel.send("Prefix is %")
+        await message.channel.send("Prefix is %! For help say %help_<command name>.This bot has currently only two features one is %cv and %ping. More features will be released soon!! Stay tuned")
+    
+@client.command()
+async def help_ping(ctx):
+    await ctx.send(f"Shows the current ping in your discord client")
 
+@client.command()
+async def help_cv(ctx):
+    await ctx.send(f"Syntax: %cv <crit rate> <crit value>")
+    
+@client.command()
+async def ping(ctx):
+    await ctx.send(f"{round(client.latency*100)}ms")
+
+@client.command(aliases=["cv"])
+async def critvalue(ctx, x: float, y: float):
+    cv=calccv(x,y)
+    await ctx.send(f"Your crit value is {cv}")
 
 
 client.run(os.environ["token"])
