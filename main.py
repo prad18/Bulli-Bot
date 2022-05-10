@@ -29,7 +29,7 @@ async def help_ping(ctx):
 @client.command()
 async def help_cv(ctx):
     await ctx.send(f"Syntax: %cv <crit rate> <crit value>")
-    
+
 @client.command()
 async def ping(ctx):
     await ctx.send(f"{round(client.latency*100)}ms")
@@ -37,7 +37,7 @@ async def ping(ctx):
 @client.command(aliases=["cv"])
 async def critvalue(ctx, x: float, y: float):
     cv=calccv(x,y)
-    await ctx.send(f"Your crit value is {cv}")
+    await ctx.send(f"Your crit value is {cv} !")
 
 
 client.run(os.environ["token"])
