@@ -39,6 +39,7 @@ async def critvalue(ctx, x: float, y: float):
 """
 from ast import alias
 from pydoc import cli
+import os
 import discord
 from discord.ext import commands
 
