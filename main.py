@@ -16,6 +16,9 @@ user=api.get_user(screen_name="GenshinImpact")
 def calccv(x: float, y: float):
     return x*2+y
 
+def rod(x:float):
+    return x/1000000
+
 @client.event
 async def on_ready():
     print("Up and running")
@@ -42,6 +45,7 @@ async def critvalue(ctx, x: float, y: float):
 @client.command()
 async def info(ctx , u):
     user=api.get_user(screen_name=u)
-    await ctx.send(f"{user.screen_name} has {user.followers_count} followers")
+    follow=int(rod(user.followers_count))
+    await ctx.send(f"{user.screen_name} has {round(follow)}M followers")
 
 client.run(os.environ["token"])
