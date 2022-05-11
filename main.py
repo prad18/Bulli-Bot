@@ -45,7 +45,10 @@ async def critvalue(ctx, x: float, y: float):
 @client.command()
 async def info(ctx , u):
     user=api.get_user(screen_name=u)
-    follow=int(rod(user.followers_count))
-    await ctx.send(f"{user.screen_name} has {round(follow)}M followers")
-
+    count=user.followers_count
+    if count>1000000 or count==1000000:
+        follow=int(rod(user.followers_count))
+        await ctx.send(f"{user.screen_name} has {round(follow)}M followers")
+    else:
+        await ctx.send(f"{user.screen_name} has {count}M followers")
 client.run(os.environ["token"])
