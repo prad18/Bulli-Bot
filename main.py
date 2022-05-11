@@ -49,16 +49,9 @@ client = commands.Bot(command_prefix="%", intents=intents)
 def calccv(x: float, y: float):
     return x*2+y
 
-
-
 @client.event
 async def on_ready():
     print("Up and running")
-
-@client.event
-async def on_message(message):
-    if "<@872795608770052116>" in message.content:
-        await message.channel.send("Prefix is %! For help say %help_<command name>.This bot has currently only two features one is %cv and %ping. More features will be released soon!! Stay tuned")
 
 @client.command()
 async def help_ping(ctx):
