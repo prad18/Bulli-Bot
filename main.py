@@ -50,5 +50,5 @@ async def info(ctx , u):
         follow=int(rod(user.followers_count))
         await ctx.send(f"{user.screen_name} has {round(follow)}M followers")
     else:
-        await ctx.send(f"{user.screen_name} has {count}M followers")
+        await ctx.send(f"{user.screen_name} has {count} followers")
 client.run(os.environ["token"])
