@@ -8,7 +8,7 @@ import tweepy
 
 intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
 client = commands.Bot(command_prefix="%", intents=intents)
-auth = tweepy.OAuth2AppHandler(os.environ["consumer_key","consumer_secret"])
+auth = tweepy.OAuth2AppHandler(os.environ("consumer_key","consumer_secret"))
 api = tweepy.API(auth)
 user=api.get_user(screen_name="GenshinImpact")
 
