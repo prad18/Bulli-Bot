@@ -40,9 +40,8 @@ async def critvalue(ctx, x: float, y: float):
 
 #tweepy intergation
 @client.command()
-async def info(ctx):
+async def info(ctx , u):
+    user=api.get_user(screen_name=u)
     await ctx.send(f"{user.screen_name} has {user.followers_count} followers")
 
 client.run(os.environ["token"])
-
-
