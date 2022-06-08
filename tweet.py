@@ -1,3 +1,4 @@
+from re import S
 from webbrowser import get
 import tweepy
 import os
@@ -17,5 +18,3 @@ def get_tweet_urls(username):
         for url in urls:
             print(str(url))
     return urls
-
-get_tweet_urls('genshinimpact')
