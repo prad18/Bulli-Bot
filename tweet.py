@@ -22,5 +22,3 @@ def get_tweet_urls(username):
             for url in urls:
                 print(str(url))
     return urls
-
-get_tweet_urls(s)
