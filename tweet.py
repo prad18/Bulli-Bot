@@ -14,7 +14,8 @@ def get_tweet_urls(username):
     urls = []
     for tweet in tweets:
         urls.append(tweet.entities['urls'][0]['expanded_url'])
-        print(urls)
+        for url in urls:
+            print(url)
     return urls
 
 get_tweet_urls('genshinimpact')
