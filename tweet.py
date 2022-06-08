@@ -1,4 +1,3 @@
-from re import S
 from webbrowser import get
 import tweepy
 import os
@@ -14,7 +13,14 @@ def get_tweet_urls(username):
     tweets = get_tweets(username)
     urls = []
     for tweet in tweets:
-        urls.append(tweet.entities['urls'][0]['expanded_url'])
-        for url in urls:
-            print(str(url))
+        if len(tweet.entities['urls']) > 0:
+            urls.append(tweet.entities['urls'][0]['url'])
+            for url in urls:
+                print(url)
+        else:
+            urls.append(tweet.text)
+            for url in urls:
+                print(str(url))
     return urls
+
+get_tweet_urls(s)
