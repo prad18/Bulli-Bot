@@ -56,5 +56,5 @@ async def info(ctx , u):
 async def tweet(ctx, s):
     urls=get_tweet_urls(s)
     for url in urls:
-        await ctx.send(f"{url}")
+        await ctx.send(url)
 client.run(os.environ["token"])
