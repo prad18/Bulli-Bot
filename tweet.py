@@ -13,6 +13,7 @@ def get_tweet_urls(username):
     tweets = get_tweets(username)
     urls = []
     for tweet in tweets:
+        
         urls.append(tweet.text)
         print(tweet.text)
     return urls

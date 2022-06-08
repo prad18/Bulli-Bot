@@ -55,5 +55,5 @@ async def info(ctx , u):
 @client.command()
 async def tweet(ctx):
     embed=discord.Embed(title="Genshin Impact",url= get_tweet_urls("genshinimpact"),description="Genshin Impact is a video game company based in Japan. The company is currently developing a new game called Genshin Impact: The Fist of the Fire Fist.", color=0x00ff00)
-
+    await ctx.send(embed=embed)
 client.run(os.environ["token"])
