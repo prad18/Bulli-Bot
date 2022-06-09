@@ -22,12 +22,11 @@ def get_tweet_urls(username):
             for url in urls:
                 print(str(url))
         elif len(tweet.entities['urls']) > 0 and len(tweet.entities['media']) >0:
-            urls.append(tweet.entities['urls'][0]['expanded_url'])
-            urls.append(tweet.entities['media'][0]['expanded_url'])
+            urls.append(tweet.entities['urls'][0]['expanded_url'] + tweet.entities['media'][0]['expanded_url'])
             for url in urls:
                 print(str(url))
         else:
-            urls.append(tweet.text + '\n')
+            urls.append(str(tweet.text))
             for urls in url:
-                print(str(urls))            
+                print(str(urls))           
     return urls
