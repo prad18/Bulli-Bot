@@ -27,8 +27,7 @@ def get_tweet_urls(username):
             for url in urls:
                 print(str(url))
         else:
-            urls.append(tweet.text)
+            urls.append(tweet.text + '\n')
             for urls in url:
-                print(str(urls))
-                
+                print(str(urls))            
     return urls
