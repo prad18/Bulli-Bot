@@ -17,6 +17,10 @@ def get_tweet_urls(username):
             urls.append(tweet.entities['urls'][0]['expanded_url'])
             for url in urls:
                 print(url)
+        elif len(tweet.entities['media']) > 0:
+            urls.append(tweet.entities['media'][0]['expanded_url'])
+            for url in urls:
+                print(str(url))
         else:
             urls.append(str(tweet.text))
             for urls in url:
