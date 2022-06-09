@@ -15,14 +15,10 @@ def get_tweet_urls(username):
     for tweet in tweets:
         if len(tweet.entities['urls']) > 0:
             urls.append(tweet.entities['urls'][0]['expanded_url'])
-            for url in urls:
-                print(url)
-        elif len(tweet.entities['media']) > 0:
-            urls.append(tweet.entities['media'][0]['expanded_url'])
-            for url in urls:
-                print(str(url))
+        elif ['media'] in tuple(tweet.entities):
+            print(tweet.entities['media'][0]['media_url'])
         else:
             urls.append(str(tweet.text))
-            for urls in url:
-                print(str(urls))           
+        for url in urls:
+            print(str(url))           
     return urls
