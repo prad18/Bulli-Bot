@@ -18,7 +18,7 @@ def get_tweet_urls(username):
         elif ['media'] in tuple(tweet.entities):
             print(tweet.entities['media'][0]['media_url'])
         elif len(tweet.entities['media']) > 0:
-            urls.append(tweet.entities['media'][0]['media_url'])
+            urls.append(tweet.entities['media'][0]['expanded_url'])
         else:
             urls.append(str(tweet.text))
         for url in urls:
