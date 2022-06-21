@@ -5,6 +5,7 @@ import discord
 from discord.ext import commands
 import tweepy
 from tweet import get_tweet_urls
+from genshin import *
 
 intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
 client = commands.Bot(command_prefix="%", intents=intents)
@@ -57,4 +58,13 @@ async def tweet(ctx, s):
     urls=get_tweet_urls(s)
     for url in urls:
         await ctx.send(url)
+
+@client.event()
+async def on_message(message):
+    if message.author==client.user:
+        return
+    for i in gen:
+        if message.content.startswith(i):
+            await message.send("Yes")
+            break
 client.run(os.environ["token"])
