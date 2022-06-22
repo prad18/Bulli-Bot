@@ -44,8 +44,8 @@ async def critvalue(ctx, x: float, y: float):
 
 #tweepy intergation
 @client.command()
-async def info(ctx , u):
-    user=api.get_user(screen_name=u)
+async def info(ctx , username):
+    user=api.get_user(screen_name=username)
     count=user.followers_count
     if count>1000000 or count==1000000:
         follow=int(rod(user.followers_count))
@@ -54,8 +54,8 @@ async def info(ctx , u):
         await ctx.send(f"{user.screen_name} has {count} followers")
 
 @client.command()
-async def tweet(ctx, s):
-    urls=get_tweet_urls(s)
+async def tweet(ctx, username):
+    urls=get_tweet_urls(username)
     for url in urls:
         await ctx.send(url)
 
@@ -67,4 +67,5 @@ async def on_message(message):
         if message.content.startswith(i):
             await message.channel.send("Yes")
             break
+
 client.run(os.environ["token"])
