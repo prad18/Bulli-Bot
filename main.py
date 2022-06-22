@@ -64,7 +64,9 @@ async def on_message(message):
     if message.author==client.user:
         return
     for i in gen:
+        print("works")
         if message.content.startswith(i):
+            print("Works")
             await message.channel.send("Yes")
             break
 
