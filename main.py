@@ -56,13 +56,13 @@ async def tweet(ctx, username):
     for url in urls:
         await ctx.send(url)
 
-@client.event
-async def on_message(message):
-    if message.author==client.user:
-        return
-    for i in gen:
-        if i in message.content:
-            await message.channel.send("Yes")
-            break
+#@client.event
+#async def on_message(message):
+#    if message.author==client.user:
+#        return
+#    for i in gen:
+#        if i in message.content:
+#            await message.channel.send("Yes")
+#           break
 
 client.run(os.environ["token"])
