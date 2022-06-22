@@ -1,13 +1,13 @@
 from ast import alias
 from pydoc import cli
 import os
-import discord
-from discord.ext import commands
+import nextcord
+from nextcord.ext import commands
 import tweepy
 from tweet import get_tweet_urls
 from genshin import *
 
-intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
+intents = nextcord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
 client = commands.Bot(command_prefix="%", intents=intents)
 auth = tweepy.OAuth2AppHandler(os.environ["consumer_key"],os.environ["consumer_secret"])
 api = tweepy.API(auth)
