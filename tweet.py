@@ -1,4 +1,3 @@
-from webbrowser import get
 import tweepy
 import os
 #live tweets from a specific user
