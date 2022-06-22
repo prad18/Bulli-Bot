@@ -5,7 +5,7 @@ import discord
 from discord.ext import commands
 import tweepy
 from tweet import get_tweet_urls
-import genshin
+from genshin import *
 
 intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
 client = commands.Bot(command_prefix="%", intents=intents)
