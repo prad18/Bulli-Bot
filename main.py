@@ -8,7 +8,7 @@ from tweet import get_tweet_urls
 from genshin import *
 
 intents = nextcord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
-client = commands.Bot(command_prefix="%", intents=intents)
+client = commands.Bot(command_prefix="%", intents=intents,status=nextcord.Status.dnd,activity=nextcord.Game(name="%help"))
 auth = tweepy.OAuth2AppHandler(os.environ["consumer_key"],os.environ["consumer_secret"])
 api = tweepy.API(auth)
 user=api.get_user(screen_name="GenshinImpact")
