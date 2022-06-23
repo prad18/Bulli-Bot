@@ -39,22 +39,19 @@ async def critvalue(ctx, x: float, y: float):
     cv=calccv(x,y)
     await ctx.send(f"Your crit value is {cv}")
 
-#tweepy intergation
-@client.command()
-async def info(ctx , username):
-    user=api.get_user(screen_name=username)
-    count=user.followers_count
-    if count>1000000 or count==1000000:
-        follow=int(rod(user.followers_count))
-        await ctx.send(f"{user.screen_name} has {round(follow)}M followers")
-    else:
-        await ctx.send(f"{user.screen_name} has {count} followers")
 
 @client.command()
-async def tweet(ctx, username):
-    urls=get_tweet_urls(username)
-    for url in urls:
-        await ctx.send(url)
+async def load(ctx,extension):
+    client.load_extension(f'cogs.{extension}')
+    await ctx.send("Loaded successfully")
+@client.command()
+async def unload(ctx,extension):
+    client.unload_extension(f'cogs.{extension}')
+    await ctx.send("Unloaded successfully")
+
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        client.load_extension(f'cogs.{filename[:-3]}')
 
 #@client.event
 #async def on_message(message):

@@ -1,5 +1,9 @@
 import tweepy
 import os
+
+auth = tweepy.OAuth2AppHandler(os.environ["consumer_key"],os.environ["consumer_secret"])
+api = tweepy.API(auth)
+
 #live tweets from a specific user
 def get_tweets(username):
     auth = tweepy.OAuthHandler(os.environ["consumer_key"], os.environ["consumer_secret"])
