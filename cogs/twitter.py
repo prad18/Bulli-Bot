@@ -22,7 +22,7 @@ class Twitter(commands.Cog):
             await ctx.send(f"{user.screen_name} has {count} followers")
 
     @commands.command()
-    async def tweet(ctx, username):
+    async def tweet(self, ctx, username):
         urls=get_tweet_urls(username)
         for url in urls:
             await ctx.send(url)
