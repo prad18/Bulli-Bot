@@ -14,8 +14,6 @@ api = tweepy.API(auth)
 def calccv(x: float, y: float):
     return x*2+y
 
-def rod(x:float):
-    return x/1000000
 
 @client.event
 async def on_ready():
