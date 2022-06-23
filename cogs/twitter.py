@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import sys
 
-sys.path.insert('D:\Bulli-Bot')
+sys.path.append('D:\Bulli-Bot')
 from tweet import *
 
 def rod(x:float):
