@@ -12,7 +12,7 @@ def rod(x:float):
 class Twitter(commands.Cog):
     #tweepy intergation
     @commands.command()
-    async def info(self, ctx , username):
+    async def followers(self, ctx , username):
         user=api.get_user(screen_name=username)
         count=user.followers_count
         if count>1000000 or count==1000000:
@@ -22,7 +22,7 @@ class Twitter(commands.Cog):
             await ctx.send(f"{user.screen_name} has {count} followers")
 
     @commands.command()
-    async def tweet(self, ctx, username):
+    async def user_tweet(self, ctx, username):
         urls=get_tweet_urls(username)
         for url in urls:
             await ctx.send(url)
