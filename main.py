@@ -16,14 +16,6 @@ api = tweepy.API(auth)
 async def on_ready():
     print("Up and running")
 
-@client.command()
-async def help_ping(ctx):
-    await ctx.send(f"Shows the current ping in your discord client")
-
-@client.command()
-async def help_cv(ctx):
-    await ctx.send(f"Syntax: %cv <crit rate> <crit value>")
-
 
 @client.command()
 async def ping(ctx):
