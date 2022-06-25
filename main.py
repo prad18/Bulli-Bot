@@ -6,13 +6,10 @@ from tweet import get_tweet_urls
 from genshin import *
 
 intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
-client = commands.Bot(command_prefix="%", intents=intents,status=discord.Status.dnd,activity=discord.Game(name="%help"))
+client = commands.Bot(command_prefix="%", intents=intents,status=discord.Status.dnd,activity=discord.Game(name="%help"), )
 auth = tweepy.OAuth2AppHandler(os.environ["consumer_key"],os.environ["consumer_secret"])
 api = tweepy.API(auth)
 
-
-def calccv(x: float, y: float):
-    return x*2+y
 
 
 @client.event
@@ -31,8 +28,6 @@ async def help_cv(ctx):
 @client.command()
 async def ping(ctx):
     await ctx.send(f"{round(client.latency*1000)}ms")
-
-
 
 
 @client.command()

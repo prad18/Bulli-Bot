@@ -9,7 +9,7 @@ def calccv(x: float, y: float):
 
 class Genshin(commands.Cog):
     @commands.command(aliases=["cv"])
-    async def critvalue(ctx, x: float, y: float):
+    async def critvalue(self, ctx, x: float, y: float):
         cv=calccv(x,y)
         await ctx.send(f"Your crit value is {cv}")
 
