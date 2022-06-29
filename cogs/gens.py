@@ -15,27 +15,28 @@ def stats_prad():
     gs.set_cookie(ltuid=99240317,ltoken="JUrf9aCcBftSWAz1MyCyecoJU1vht5A2teWul9g9")
     stats = gs.get_user_stats(819444987)['stats']
     for field, value in stats.items():
-        print(f"{field}: {value}")
+        print(dict(zip(field,value)))
+
 
 def stats_sp():
     gs.set_cookie(ltuid=106636367,ltoken="cPffZ7lhs86TK8IeunowmyesVKvCpNOuQrqPveaw")
     stats = gs.get_user_stats(821562362)['stats']
     for field, value in stats.items():
-        print(f"{field}: {value}")
+        print(dict(zip(field,value)))
 
 
 def stats_vishwo():
     gs.set_cookie(ltuid=187431981,ltoken="2mOXqPN3bSvA1y72mA66PZmEzdKqqjX5jliPBc5C")
     stats = gs.get_user_stats(849428945)['stats']
     for field, value in stats.items():
-        print(f"{field}: {value}")
+        print(dict(zip(field,value)))
 
 def stats_vebev():
     gs.set_cookie(ltuid=179475140,ltoken="StlmWKguPcluX8kNSlJBONwmrSkS9pqPrOmUpeGg")
     stats = gs.get_user_stats(847213220)['stats']
     for field, value in stats.items():
-        print(f"{field}: {value}")
-
+        print(dict(zip(field,value)))
+        
 def calccv(x: float, y: float):
     return x*2+y
 
