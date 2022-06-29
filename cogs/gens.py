@@ -56,19 +56,19 @@ class Genshin(commands.Cog):
     
     @commands.command()
     async def stats_prad(self,ctx):
-        await ctx.send(stats_prad)
+        await ctx.send(stats_prad())
 
     @commands.command()
     async def stats_vishwo(self,ctx):
-        await ctx.send(stats_vishwo)
+        await ctx.send(stats_vishwo())
 
     @commands.command()
     async def stats_sp(self,ctx):
-        await ctx.send(stats_sp)
+        await ctx.send(stats_sp())
 
     @commands.command()
     async def stats_vebev(self,ctx):
-        await ctx.send(stats_vebev)
+        await ctx.send(stats_vebev())
 
 def setup(client):
     client.add_cog(Genshin(client))
