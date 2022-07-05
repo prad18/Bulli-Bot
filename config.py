@@ -1,0 +1,5 @@
+token="ODczOTIyMjkzNDk4Mjc3ODk4.GcDWIy.V5ibcwHDqLf7k5PdOgQI7AmmFbtvj2mQUgCW6I"
+consumer_key = 'GXD1fBtiFS6OpJ71PfdEkUoyp'
+consumer_secret = 'tbwLhUVvHsoHaRwjmcG8PMfH3zb9T7ghzDcTCLaTf6TgUftRDA'
+access_token = '1291093375899197440-xI8A2s9TIZHw8VvuM9dezHX4jwm55l'
+access_token_secret = 'tV7EhISjQJXaKr1K1ImKGzXdbbMN5xzyyQFTKprWkhWUw'
