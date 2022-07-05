@@ -75,9 +75,9 @@ class Genshin(commands.Cog):
 
     @commands.command()
     async def stats_vebev(self,ctx):
-        stats_vebev
+        stats_vebev()
         for i,j in a.items():
             await ctx.send(f"{i}:{j}")
-            
+
 def setup(client):
     client.add_cog(Genshin(client))
