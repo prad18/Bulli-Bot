@@ -10,6 +10,9 @@ client = commands.Bot(command_prefix="%", intents=intents,status=discord.Status.
 auth = tweepy.OAuth2AppHandler(os.environ["consumer_key"],os.environ["consumer_secret"])
 api = tweepy.API(auth)
 
+def term2_marks(g:float,h:float,x:float):
+    y=round((5*(g-h)-3*x)/7)
+    return y
 
 
 @client.event
@@ -21,6 +24,10 @@ async def on_ready():
 async def ping(ctx):
     await ctx.send(f"{round(client.latency*1000)}ms")
 
+@client.command()
+async def term2(ctx,theory:float,practicals:float,term1:float):
+    y=term2_marks(theory,practicals,term1)
+    await ctx.send(f"Your term2 marks is: {y}")
 
 @client.command()
 async def load(ctx,extension):
