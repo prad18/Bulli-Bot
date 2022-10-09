@@ -39,9 +39,13 @@ async def unload(ctx,extension):
     client.unload_extension(f'cogs.{extension}')
     await ctx.send("Unloaded successfully")
 
-for filename in os.listdir('./cogs'):
-    if filename.endswith('.py'):
-        client.load_extension(f'cogs.{filename[:-3]}')
+async def load_extensions():
+    for filename in os.listdir('./cogs'):
+        if filename.endswith('.py'):
+            await client.load_extension(f'cogs.{filename[:-3]}')
 
+async def main():
+    async with client:
+        await load_extensions()
+        await client.start(os.environ["token"])
 
-client.run(os.environ["token"])
