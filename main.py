@@ -4,6 +4,7 @@ from discord.ext import commands
 import tweepy
 from tweet import get_tweet_urls
 from genshin import *
+import asyncio
 
 intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
 client = commands.Bot(command_prefix="%", intents=intents,status=discord.Status.dnd,activity=discord.Game(name="%help"), )
@@ -49,3 +50,4 @@ async def main():
         await load_extensions()
         await client.start(os.environ["token"])
 
+asyncio.run(main())
