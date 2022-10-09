@@ -79,5 +79,5 @@ class Genshin(commands.Cog):
         for i,j in a.items():
             await ctx.send(f"{i}:{j}")
 
-def setup(client):
-    client.add_cog(Genshin(client))
+async def setup(client):
+    await client.add_cog(Genshin(client))

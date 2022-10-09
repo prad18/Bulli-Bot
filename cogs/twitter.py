@@ -28,6 +28,6 @@ class Twitter(commands.Cog):
             await ctx.send(url)
 
 
-def setup(client):
-    client.add_cog(Twitter(client))
+async def setup(client):
+    await client.add_cog(Twitter(client))
 
