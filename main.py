@@ -4,6 +4,9 @@ from discord.ext import commands
 import tweepy
 from tweet import get_tweet_urls
 from genshin import *
+import asyncio
+
+
 
 intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
 client = commands.Bot(command_prefix="%", intents=intents,status=discord.Status.dnd,activity=discord.Game(name="%help"), )
@@ -43,6 +46,9 @@ async def load_extensions():
     for filename in os.listdir('./cogs'):
         if filename.endswith('.py'):
             await client.load_extension(f'cogs.{filename[:-3]}')
+async def main():
+    async with client:
+        await load_extensions()
+    await client.start(os.environ["token"])
 
-
-client.run(os.environ["token"])
+asyncio.run(main())
