@@ -3,7 +3,6 @@ import discord
 from discord.ext import commands
 import tweepy
 from tweet import get_tweet_urls
-from genshin import *
 import asyncio
 
 

@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from genshin import gen
 import genshinstats as gs
 
 uid_vebev = 847213220
@@ -48,12 +47,12 @@ class Genshin(commands.Cog):
         await ctx.send(f"Your crit value is {cv}")
 
 
-    @commands.Cog.listener()
-    async def on_message(self,message):
-        for i in gen:
-            if i in message.content:
-                await message.channel.send("Yes")
-                break
+#    @commands.Cog.listener()
+#   async def on_message(self,message):
+#        for i in gen:
+#            if i in message.content:
+#                await message.channel.send("Yes")
+#                break
     
     @commands.command()
     async def stats_prad(self,ctx):
