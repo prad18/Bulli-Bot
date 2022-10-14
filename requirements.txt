@@ -1,3 +1,4 @@
 discord
 tweepy
 git+https://github.com/nitolar/genshinstats
+sqlite3
