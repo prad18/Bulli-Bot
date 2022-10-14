@@ -36,6 +36,7 @@ def stats1(a):
     except IndexError:
         print("Not registered")
 
+
 @client.event
 async def on_ready():
     print("Up and running")
@@ -101,10 +102,6 @@ async def stats(ctx):
     stats1(ctx.author.id)
     for i,j in b.items():
         await ctx.send(f"{i}:{j}")
-
-
-
-
 
 @client.command()
 async def load(ctx,extension):
