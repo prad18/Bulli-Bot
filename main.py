@@ -5,6 +5,7 @@ from discord.ext import commands
 #from tweet import get_tweet_urls
 import sqlite3
 import genshinstats as gs
+import key
 
 client = commands.Bot(command_prefix="%", intents=discord.Intents.all(),status=discord.Status.dnd,activity=discord.Game(name="%help"), )
 #auth = tweepy.OAuth2AppHandler(os.environ["consumer_key"],os.environ["consumer_secret"])
@@ -115,5 +116,5 @@ async def load_extensions():
     for filename in os.listdir('D:\Code\Bulli-Bot\cogs'):
         if filename.endswith('.py'):
             await client.load_extension(f'cogs.{filename[:-3]}')
-client.run("MTE0MzkxMzIxNTA4MDgwNDQxMg.GBAkas.it7N9g5Yr2BEmpQP1HZL6NnkY6SBU13EqiEnxc")
+client.run(key.token)
 
