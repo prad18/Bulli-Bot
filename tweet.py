@@ -1,4 +1,4 @@
-import tweepy
+"""import tweepy
 import os
 
 auth = tweepy.OAuth2AppHandler(os.environ["consumer_key"],os.environ["consumer_secret"])
@@ -30,4 +30,4 @@ def get_tweet_urls(username):
                 print(tweet.entities['media'][0]['expanded_url'])
         else:
             urls.append(tweet.text)
-    return urls
+    return urls"""

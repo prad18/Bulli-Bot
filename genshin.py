@@ -1,4 +1,6 @@
-gen=[]
-with open("genshin.txt") as f:
-    for line in f:
-        gen.append(line.strip())
+import sqlite3 
+con=sqlite3.connect("genshin.db")
+cur=con.cursor()
+con.execute("select*from gen")
+data=cur.fetchall()
+print(data)

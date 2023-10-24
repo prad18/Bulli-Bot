@@ -1,15 +1,14 @@
 import os
 import discord
 from discord.ext import commands
-import tweepy
-from tweet import get_tweet_urls
-import asyncio
+#import tweepy
+#from tweet import get_tweet_urls
 import sqlite3
 import genshinstats as gs
 
 client = commands.Bot(command_prefix="%", intents=discord.Intents.all(),status=discord.Status.dnd,activity=discord.Game(name="%help"), )
-auth = tweepy.OAuth2AppHandler(os.environ["consumer_key"],os.environ["consumer_secret"])
-api = tweepy.API(auth)
+#auth = tweepy.OAuth2AppHandler(os.environ["consumer_key"],os.environ["consumer_secret"])
+#api = tweepy.API(auth)
 con=sqlite3.connect("genshin.db")
 cur=con.cursor()
 cur.execute("create table if not exists gen(author_id int,uid int,ltuid int,ltoken varchar)")
@@ -54,7 +53,6 @@ async def term2(ctx,theory:float,practicals:float,term1:float):
 
 @client.command()
 async def new(ctx):
-    ids=[]
     cur.execute("select author_id from gen")
     id_for_checking=cur.fetchall()[0]
     if ctx.author.id in id_for_checking:
@@ -114,12 +112,8 @@ async def unload(ctx,extension):
     await ctx.reply("Unloaded successfully")
 
 async def load_extensions():
-    for filename in os.listdir('./cogs'):
+    for filename in os.listdir('D:\Code\Bulli-Bot\cogs'):
         if filename.endswith('.py'):
             await client.load_extension(f'cogs.{filename[:-3]}')
-async def main():
-    async with client:
-        await load_extensions()
-        await client.start(os.environ["token"])
+client.run("MTE0MzkxMzIxNTA4MDgwNDQxMg.GBAkas.it7N9g5Yr2BEmpQP1HZL6NnkY6SBU13EqiEnxc")
 
-asyncio.run(main())
